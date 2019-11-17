@@ -13,6 +13,7 @@
   $query = "SELECT * FROM users WHERE username='fer' AND password='123'";
   $result = $conn->query($query);
 
+  echo $result;
   if($data = mysqli_fetch_array($result)){
     echo '1';
   }
