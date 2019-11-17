@@ -1,5 +1,5 @@
 <?php
 
-echo "Linea de prueba";
+echo "Probadnoo conexion ";
 
 ?>
