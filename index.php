@@ -10,8 +10,8 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-
-$query = "select * from `heroku_71c0f8d00cb5a72`.`users` where username = 'fer' and password = '123'";
+echo "ya ta";
+$query = "select * from heroku_71c0f8d00cb5a72.users where username = 'fer' and password = '123'";
 $result = $conn->query($query);
 echo $result;
 
