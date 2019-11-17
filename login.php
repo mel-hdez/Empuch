@@ -2,14 +2,21 @@
   $username = filter_input(INPUT_POST, "username");
   $password = filter_input(INPUT_POST, "password");
 
+    $url = parse_url(getenv("mysql://b28c61d6887e8d:2be748af@us-cdbr-iron-east-05.cleardb.net/heroku_71c0f8d00cb5a72?reconnect=true"));
 
-  $mysqli = new mysqli("heroku_71c0f8d00cb5a72", "b28c61d6887e8d", "2be748af");
+  $server = $url["host"];
+  $username = $url["user"];
+  $password = $url["pass"];
+  $db = substr($url["path"], 1);
 
-  $result = mysqli_query($mysqli, 
-  "select * from `heroku_71c0f8d00cb5a72`.`users` where username = '".$username."' and password = '".$password."'");
+  $conn = new mysqli($server, $username, $password, $db);
 
-  echo $result;
+
+  $query = "select * from `heroku_71c0f8d00cb5a72`.`users` where username = '".$username."' and password = '".$password."'";
+  $result = $conn->query($query);
+
   if($data = mysqli_fetch_array($result)){
     echo '1';
   }
+  $conn->close();
 ?>
