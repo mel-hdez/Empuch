@@ -1,5 +1,5 @@
 <?php
-  include_once 'db_config.php';
+  include 'db_config.php';
 
   $username = filter_input(INPUT_POST, "username");
   $password = filter_input(INPUT_POST, "password");
