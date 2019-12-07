@@ -1,5 +1,4 @@
 <?php
-
   $db_host = "us-cdbr-iron-east-05.cleardb.net";
   $db_user = "b28c61d6887e8d";
   $db_pass = "2be748af";

@@ -1,14 +1,23 @@
 <?php
   include 'db_config.php';
-
-  $username = filter_input(INPUT_POST, "username");
-  $password = filter_input(INPUT_POST, "password");
-
-  $query = "SELECT * FROM users WHERE username = '".$username."' AND password = '".$password."'";
+  
+  $email = filter_input(INPUT_POST, "correo");
+  $password = filter_input(INPUT_POST, "contraseña");
+  $password = md5($password);
+  
+  $query = "SELECT * FROM usuario WHERE Correo = '".$email."' 
+            AND Contraseña = '".$password."'";
   $result = $conn->query($query);
 
-  if($data = mysqli_fetch_array($result)){
+  if(mysqli_num_rows($result) == 1){
     echo '1';
+  }else{
+    $queryDoc = "SELECT * FROM usuario WHERE Correo = '".$email."' 
+                  AND Contraseña = '".$password."'";
+    $resultDoc = $conn->query($queryDoc);
+    if(mysqli_num_rows($resultDoc) == 1){
+      echo '2';
+    }
   }
 $conn->close();
 ?>
