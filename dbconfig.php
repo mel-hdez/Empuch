@@ -8,7 +8,5 @@
   if ($conn->connect_error) {
     echo "Fallo";
     die("Connection failed: " . $conn->connect_error);
-  }else{
-    echo "pp";
-  }  
+  }
 ?>
