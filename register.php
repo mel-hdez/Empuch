@@ -1,5 +1,5 @@
 <?php
-  include 'db_config.php';
+  include 'dbconfig.php';
   $type = filter_input(INPUT_POST, "tipo");
   
   $name = filter_input(INPUT_POST, "nombre");
