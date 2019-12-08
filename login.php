@@ -1,8 +1,10 @@
 <?php
   include 'dbconfig.php';
   
-  $email = filter_input(INPUT_POST, "correo");
-  $password = filter_input(INPUT_POST, "contraseña");
+  // $email = filter_input(INPUT_POST, "correo");
+  // $password = filter_input(INPUT_POST, "contraseña");
+  $email = "mel@gmail.com";
+  $password = "3312";
   $password = md5($password);
   
   $query = "SELECT * FROM usuario WHERE Correo = '".$email."' AND Contrasena = '".$password."'";
@@ -18,7 +20,7 @@
     $arrayDoc = $resultDoc->fetch_array(MYSQLI_NUM);
     $rowDoc = $resultDoc->num_rows;
     if($rowDoc > 0){
-      echo '2-'.$array[0];
+      echo '2-'.$arrayDoc[0];
     }
   }
   mysqli_close($conn);
