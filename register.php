@@ -12,21 +12,25 @@
   $password = md5($password);
   
   if($type == '0'){
-    $userQUery = "SELECT * FROM usuario WHERE Correo = '".$email."' AND Contraseña = '".$password."'";
-    $userResult = mysqli_query($conn, $userQUery);
-    $row = mysqli_fetch_array($userResult);
+    $userQUery = "INSERT INTO usuario(Nombre, Apellidos, Domicilio, Ciudad, NoCelular, Correo, Contrasena)
+                  VALUES('$name','$lastname', '$address', '$city', '$cellphone', '$email', '$password')";
+    $userResult = $conn->query($userQUery);
+    if($userResult){
+      echo "1";
+    }
   } else if($type == '1'){
     $phd = filter_input(INPUT_POST, "cedula");
-    $
-    $docQUery = "SELECT * FROM usuario WHERE Correo = '".$email."' AND Contraseña = '".$password."'";
+    $schedule = filter_input(INPUT_POST, "horario");
+
+    $docQUery = "INSERT INTO veterinario(Nombre, Apellidos, Domicilio, Ciudad, No_Celular, Correo, Contrasena, CedulaProf, Horario)
+                  VALUES('$name','$lastname', '$address', '$address', '$cellphone', '$email', '$password', '$phd', '$schedule')";
     $docResult = mysqli_query($conn, $docQUery);
-    $row = mysqli_fetch_array($docResult);    
+    if($docResult){
+      echo "1";
+    }
   }
 
   $result = $conn->query($query);
-
-  if($data = mysqli_fetch_array($result)){
-    echo '1';
-  }
+  $
 $conn->close();
 ?>
