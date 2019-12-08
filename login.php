@@ -1,10 +1,8 @@
 <?php
   include 'dbconfig.php';
   
-  // $email = filter_input(INPUT_POST, "correo");
-  // $password = filter_input(INPUT_POST, "contraseña");
-  $email = "mel@gmail.com";
-  $password = "3312";
+  $email = filter_input(INPUT_POST, "correo");
+  $password = filter_input(INPUT_POST, "contraseña");
   $password = md5($password);
   
   $query = "SELECT * FROM usuario WHERE Correo = '".$email."' AND Contrasena = '".$password."'";
