@@ -37,15 +37,15 @@
 if($opcion == "mascota"){
   $name = $_REQUEST['nombre'];
   $date = $_REQUEST['fecha'];
-  $date = date('Y-m-d', strtotime(str_replace('-', '/', $date)));
+  $date = date('Y-m-d', strtotime($date));
   $sickness = $_REQUEST['alergias'];
   $weight = $_REQUEST['peso'];
   $kind = $_REQUEST['raza'];
   $id = $_REQUEST['id'];
   $sex = $_REQUEST['sexo'];
-
+  echo $date;
   $petQuery = "INSERT INTO mascota(nombre, fecha_nac, alergias, peso, sexo, id_usuario, raza)
-                VALUES('$name','$date','$sickness','$weight','$sex','$id','$kind')";
+                VALUES('$name','$date2','$sickness','$weight','$sex','$id','$kind')";
   $petResult = mysqli_query($conn, $petQuery);
   if($petResult){
     echo "1";
