@@ -37,6 +37,7 @@
 if($opcion == "mascota"){
   $name = $_REQUEST['nombre'];
   $date = $_REQUEST['fecha'];
+  $date = date('Y-m-d', strtotime(str_replace('-', '/', $date)));
   $sickness = $_REQUEST['alergias'];
   $weight = $_REQUEST['peso'];
   $kind = $_REQUEST['raza'];
