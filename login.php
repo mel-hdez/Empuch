@@ -1,22 +1,22 @@
 <?php
   include 'dbconfig.php';
   
-  $email = filter_input(INPUT_POST, "correo");
-  $password = filter_input(INPUT_POST, "contraseña");
-  $password = md5($password);
+  $correo = filter_input(INPUT_POST, "correo");
+  $contra = filter_input(INPUT_POST, "contraseña");
+  $contra = md5($contra);
   
-  $query = "SELECT * FROM usuario WHERE Correo = '".$email."' AND Contrasena = '".$password."'";
-  $result = $conn->query($query);
-  $array = $result->fetch_array(MYSQLI_NUM);
-  $row = $result->num_rows;
+  $query = "SELECT * FROM usuario WHERE Correo = '".$correo."' AND Contrasena = '".$contra."'";
+  $resultado = $conn->query($query);
+  $array = $resultado->fetch_array(MYSQLI_NUM);
+  $row = $resultado->num_rows;
   if($row > 0){
     echo '1-'.$array[0];
   }else{
-    $queryDoc = "SELECT * FROM veterinario WHERE Correo = '".$email."' 
-                  AND Contrasena = '".$password."'";
-    $resultDoc = $conn->query($queryDoc);
-    $arrayDoc = $resultDoc->fetch_array(MYSQLI_NUM);
-    $rowDoc = $resultDoc->num_rows;
+    $queryDoc = "SELECT * FROM veterinario WHERE Correo = '".$correo."' 
+                  AND Contrasena = '".$contra."'";
+    $resultadoDoc = $conn->query($queryDoc);
+    $arrayDoc = $resultadoDoc->fetch_array(MYSQLI_NUM);
+    $rowDoc = $resultadoDoc->num_rows;
     if($rowDoc > 0){
       echo '2-'.$arrayDoc[0];
     }
