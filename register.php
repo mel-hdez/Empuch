@@ -15,9 +15,10 @@
     $contra = md5($contra);
     
     if($tipo == '0'){
-      $usuarioQuery = "INSERT INTO usuario(Nombre, Apellidos, Domicilio, Ciudad, NoCelular, Correo, Contrasena)
+      $usuarioQuery = "INSERT INTO usuario(Nombre, Apellidos, Domicilio, Ciudad, No_Celular, Correo, Contrasena)
                   VALUES('$nombre','$apellido', '$direccion', '$ciudad', '$telefono', '$correo', '$contra')";
-    $userResult = $conn->query($usuarioQuery);
+                  echo $usuarioQuery;
+    $userResult = mysqli_query($conn, $usuarioQuery);
     if($userResult){
       echo "1";
     }
