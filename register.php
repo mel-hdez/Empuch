@@ -72,7 +72,7 @@ if($opcion == "mascota"){
 if($opcion == "cita"){
   $fecha = $_REQUEST['fecha'];
   $fecha = date('Y-m-d', strtotime($fecha));
-  $diagnostico = $_REQUEST['diagnostico'];
+  $malestar = $_REQUEST['malestar'];
   $mascota = $_REQUEST['mascota'];
 
   $citaQuery = "INSERT INTO mascota(nombre, fecha_nac, alergias, peso, sexo, id_usuario, raza)
