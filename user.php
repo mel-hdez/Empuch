@@ -3,47 +3,30 @@ header('Content-Type: application/json');
 include 'dbconfig.php';
 $menu = $_REQUEST['opcion'];
 $id = $_REQUEST['id'];
+$resultadoArray = array();
 
 if($menu == "mascota"){
   $mascotaQuery = "SELECT * FROM mascota WHERE id_usuario = '$id'";
   $mascotaResultado = mysqli_query($conn, $mascotaQuery);
-  $mascotaInfo = array();
   foreach($mascotaResultado as $row){
-    $mascotaInfo[] = $row;
+    $resultadoArray[] = $row;
   }
-  mysqli_close($conn);
-  echo json_encode($mascotaInfo);
 }
 
 if($menu == "citas"){
   $citaQuery = "SELECT * FROM cita WHERE id_usuario = '$id'";
   $citaResultado = mysqli_query($conn, $citaQuery);
-  $citaInfo = array();  
   foreach($citaResultado as $row){
-    $citaInfo[] = $row;
+    $resultadoArray[] = $row;
   }
-  mysqli_close($conn);
-  echo json_encode($citaInfo);
-}
-
-if($menu == "historial"){
-
 }
 
 if($menu == "usuario"){
   $usuarioQuery = "SELECT * FROM usuario WHERE id_usuario = '$id'";
   $usuarioResultado = mysqli_query($conn, $usuarioQuery);
-  $usuarioInfo = array();
-<<<<<<< HEAD
   foreach($usuarioResultado as $row){
-    $usuarioInfo[] = $row;
-=======
-  while($r = mysqli_fetch_assoc($usuarioResultado)){
-    $usuarioInfo[] = $r;
->>>>>>> bba3ed1dba8e451c6874f8db889f8ef9d7bc6b93
+    $resultadoArray[] = $row;
   }
-  var_dump($usuarioInfo);
-  mysqli_close($conn);
-  echo json_encode($usuarioInfo);
 }
+echo json_encode($resultadoArray);
 ?>
