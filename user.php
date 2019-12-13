@@ -34,9 +34,10 @@ if($menu == "usuario"){
   $usuarioQuery = "SELECT * FROM usuario WHERE id_usuario = '$id'";
   $usuarioResultado = mysqli_query($conn, $usuarioQuery);
   $usuarioInfo = array();
-  foreach($usuarioInfo as $row){
+  foreach($usuarioResultado as $row){
     $usuarioInfo[] = $row;
   }
+  var_dump($usuarioInfo);
   mysqli_close($conn);
   echo json_encode($usuarioInfo);
 }
