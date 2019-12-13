@@ -34,8 +34,13 @@ if($menu == "usuario"){
   $usuarioQuery = "SELECT * FROM usuario WHERE id_usuario = '$id'";
   $usuarioResultado = mysqli_query($conn, $usuarioQuery);
   $usuarioInfo = array();
+<<<<<<< HEAD
   foreach($usuarioResultado as $row){
     $usuarioInfo[] = $row;
+=======
+  while($r = mysqli_fetch_assoc($usuarioResultado)){
+    $usuarioInfo[] = $r;
+>>>>>>> bba3ed1dba8e451c6874f8db889f8ef9d7bc6b93
   }
   var_dump($usuarioInfo);
   mysqli_close($conn);
