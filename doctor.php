@@ -5,7 +5,7 @@ $menu = $_REQUEST['opcion'];
 $id = $_REQUEST['id'];
 $resultadoArray = array();
 
-if($menu == "mascota"){
+if($menu == "pacientes"){
   $mascotaQuery = "SELECT * FROM mascota WHERE id_usuario = '$id'";
   $mascotaResultado = mysqli_query($conn, $mascotaQuery);
   foreach($mascotaResultado as $row){
@@ -21,7 +21,7 @@ if($menu == "citas"){
   }
 }
 
-if($menu == "usuario"){
+if($menu == "factura"){
   $usuarioQuery = "SELECT * FROM usuario WHERE id_usuario = '$id'";
   $usuarioResultado = mysqli_query($conn, $usuarioQuery);
   foreach($usuarioResultado as $row){
