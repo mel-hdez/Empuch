@@ -74,11 +74,12 @@ if($opcion == "cita"){
   $fecha = date('Y-m-d', strtotime($fecha));
   $malestar = $_REQUEST['malestar'];
   $mascota = $_REQUEST['mascota'];
+  $doctor = $_REQUEST['doctor'];
 
-  $citaQuery = "INSERT INTO mascota(nombre, fecha_nac, alergias, peso, sexo, id_usuario, raza)
-                VALUES('$nombre','$date','$alergia','$peso','$sexo','$id','$raza')";
-  $mascotaResultado = mysqli_query($conn, $mascotaQuery);
-  if($mascotaResultado){
+  $citaQuery = "INSERT INTO cita(malestar, fecha_cit, id_mascota, id_veterinario)
+                VALUES('$malestar','$fecha','$mascota','$doctor')";
+  $citaResultado = mysqli_query($conn, $citaQuery);
+  if($citaResultado){
     echo "1";
   }
 }
