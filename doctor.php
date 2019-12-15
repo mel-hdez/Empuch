@@ -26,7 +26,7 @@ if($menu == "citas"){
   }
 }
 
-if($menu == "usuario"){
+if($menu == "factura"){
   $usuarioQuery = "SELECT * FROM usuario WHERE id_usuario = '$id'";
   $usuarioResultado = mysqli_query($conn, $usuarioQuery);
   foreach($usuarioResultado as $row){
