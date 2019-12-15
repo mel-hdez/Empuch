@@ -19,7 +19,8 @@ if($menu == "pacientes"){
 }
 
 if($menu == "citas"){
-  $citaQuery = "SELECT * FROM cita WHERE id_veterinario = '$id' AND estado = '0'";
+  $citaQuery = "SELECT * FROM cita c INNER JOIN mascota m
+  ON c.id_mascota = m.id_mascota WHERE id_veterinario = '$id' AND estado = '0'";
    $citaResultado = mysqli_query($conn, $citaQuery);
   foreach($citaResultado as $row){
     $resultadoArray[] = $row;
