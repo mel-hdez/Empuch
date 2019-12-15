@@ -5,10 +5,15 @@ $menu = $_REQUEST['opcion'];
 $id = $_REQUEST['id'];
 $resultadoArray = array();
 
-if($menu == "mascota"){
-  $mascotaQuery = "SELECT * FROM mascota WHERE id_usuario = '$id'";
-  $mascotaResultado = mysqli_query($conn, $mascotaQuery);
-  foreach($mascotaResultado as $row){
+if($menu == "pacientes"){
+  $pacienteQuery = "SELECT m.nombre, m.fecha_nac, m.alergias, m.peso, m.sexo, m.raza FROM mascota m
+  INNER JOIN
+  (cita c INNER JOIN veterinario v ON c.id_veterinario = v.id_veterinario)
+   ON m.id_mascota = c.id_mascota 
+   WHERE 	v.id_veterinario = '$id'
+   GROUP BY nombre";
+  $pacienteResultado = mysqli_query($conn, $pacienteQuery);
+  foreach($pacienteResultado as $row){
     $resultadoArray[] = $row;
   }
 }
