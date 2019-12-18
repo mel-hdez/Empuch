@@ -48,7 +48,7 @@ if($opcion == "mascota"){
   $id = $_REQUEST['id'];
   $sexo = $_REQUEST['sexo'];
   $mascotaQuery = "INSERT INTO mascota(nombre, fecha_nac, alergias, peso, sexo, id_usuario, raza)
-                VALUES('$nombre','$date','$alergia','$peso','$sexo','$id','$raza')";
+                VALUES('$nombre','$fecha','$alergia','$peso','$sexo','$id','$raza')";
   $mascotaResultado = mysqli_query($conn, $mascotaQuery);
   if($mascotaResultado){
     echo "1";
