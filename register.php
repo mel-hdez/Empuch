@@ -47,8 +47,9 @@ if($opcion == "mascota"){
   $raza = $_REQUEST['raza'];
   $id = $_REQUEST['id'];
   $sexo = $_REQUEST['sexo'];
-  $mascotaQuery = "INSERT INTO mascota(nombre, fecha_nac, alergias, peso, sexo, id_usuario, raza)
-                VALUES('$nombre','$date','$alergia','$peso','$sexo','$id','$raza')";
+  $image = $_REQUEST['foto'];
+  $mascotaQuery = "INSERT INTO mascota(nombre, fecha_nac, alergias, peso, sexo, id_usuario, raza, imagen_mascota)
+                VALUES('$nombre','$fecha','$alergia','$peso','$sexo','$id','$raza', '$image')";
   $mascotaResultado = mysqli_query($conn, $mascotaQuery);
   if($mascotaResultado){
     echo "1";
